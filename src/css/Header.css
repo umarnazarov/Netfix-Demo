@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+html {
+    background-color: #000000
+}
+
+.header {
+    height: 100vh;
+    background: rgb(0,0,0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.644) 0%, rgba(0, 0, 0, 0.658) 88%), url('../images/netflix-bg.jpeg');
+    background-position: center;
+    background-size: cover
+}
+
+.navbar {
+    margin: 0 20px
+}
+
+.navbar-nav {
+    max-width: 1200px;
+    margin: 0px auto;
+    transform: translateY(20px);
+    display: flex;
+    justify-content: space-between
+}
+
+#nav-logo {
+    width: 8.375rem;
+    height: 2.25rem;
+    cursor: pointer
+}
+
+.navbar-nav a{
+    color: white;
+    text-decoration: none;
+    padding: 5px 22px;
+    background: #E50914;
+    font-weight: 400;
+    border-radius: 3px
+}
+
+.navbar-nav a:hover{
+    background: #ff3a44;
+}
+
+.header-info-container {
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px
+}
+
+.header-info-content {
+    color: white;
+    text-align: center
+}
+
+.header-info-content h1 {
+    font-size: 3.6rem;
+    text-align: center;
+    letter-spacing: -1px;
+    line-height: 65px;
+}
+
+.header-info-content h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+
+}
+
+.header-info-content input {
+    width: 60%;
+    padding: 12px;
+    font-size: 17px;
+    outline: none
+}
+
+.header-info-content button {
+    width: 25%;
+    padding: 13.7px;
+    font-size: 17px;
+    background: #E50914;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.header-info-content button:hover .fa-chevron-right {
+    animation: fa-chevron-right .8s ease-in infinite
+}
+
+.header-info-content button:hover {
+    background-color: #fd2530
+}
+
+@keyframes fa-chevron-right {
+    0% {
+        transform: translateX(0px)
+    }
+    50% {
+        transform: translateX(3px)
+    }
+    100% {
+        transform: translateX(0px)
+    }
+}
+
+.header-info-ask {
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.header-info-ask p {
+    text-align: left;
+    font-size: 12.5px;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 700px) {
+    #nav-logo {
+        width: 6.375rem;
+        height: 2rem;
+    }
+
+    .header-info-content h1 {
+        font-size: 2.3rem;
+        line-height: 45px
+    }
+
+    .header-info-content h2 {
+        font-size: 15px;
+    }
+    .header-info-content input {
+        width: 80%;
+        margin: 10px 40px
+    }
+    
+    .header-info-content button {
+        width: 33%;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .header-info-ask p {
+        text-align: center;
+        font-size: 11.5px;
+        margin-top: 10px;
+    }
+}
