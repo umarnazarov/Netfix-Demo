@@ -1,9 +1,9 @@
 import React from 'react'
 import "../css/Footer.css"
 
-function Footer() {
+function Footer({ bg, borderTop }) {
     return (
-        <footer className='footer'>
+        <footer className='footer' style={{ backgroundColor: bg, borderTop }}>
             <div className='footer-content'>
                 <div id="footer-main-text"><a href='#'>Questions? Contact us.</a></div>
                 <div className='footer-links'>

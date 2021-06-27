@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logo from '../images/netflix-logo.png'
 import '../css/Header.css'
 
@@ -9,7 +9,7 @@ function Header() {
             <nav className='navbar'>
                 <div className='navbar-nav'>
                     <img id="nav-logo" src={logo} alt='bg' />
-                    <a href='/'>Sign In</a>
+                    <Link to='/login'>Sign In</Link>
                 </div>
             </nav>
             <div className='header-info-container'>

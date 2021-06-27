@@ -1,14 +1,15 @@
-import { Header } from "./components/Header";
 import Main from "./components/Main";
-import Footer from './components/Footer'
+import Login from "./components/Login";
+import { Redirect, Route, Switch } from 'react-router-dom'
+
 
 function App() {
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
+    <Switch>
+      <Redirect exact from="/" to="/home" />
+      <Route path='/home' exact component={Main} />
+      <Route path='/login' exact component={Login} />
+    </Switch>
   );
 }
 

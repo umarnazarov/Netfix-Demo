@@ -1,0 +1,71 @@
+.login-container {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.644) 0%, rgba(0, 0, 0, 0.411) 88%), url('../images/netflix-bg.jpeg');
+}
+.login-content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#login-logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 9.5rem;
+    height: 3.5rem;
+    cursor: pointer
+}
+
+.login-hero {
+    height: 500px;
+    background-color: #000000bb;
+    padding: 40px 60px;
+    border-radius: 5px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h2{
+    font-size: 37px;
+    margin-bottom: 30px;
+}
+
+.login-form input {
+    width: 370px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 18px;
+    background-color: #454545;
+    border: none;
+    border-radius: 5px;
+    color: white
+}
+
+.login-form button {
+    border: none;
+    background-color: #E50914;
+    color: white;
+    padding: 11px;
+    font-size: 19px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.pass-div {
+    position: relative;
+}
+
+.fa-eye-slash, .fa-eye {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 17px
+}
+
