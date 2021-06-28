@@ -1,0 +1,139 @@
+.login-container {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.644) 0%, rgba(0, 0, 0, 0.411) 88%), url('../images/netflix-bg.jpeg');
+}
+.login-content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#login-logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 9.5rem;
+    height: 3.5rem;
+    cursor: pointer
+}
+
+.login-hero {
+    height: 650px;
+    background-color: #000000bb;
+    padding: 40px 60px;
+    border-radius: 5px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h2{
+    font-size: 37px;
+    margin-bottom: 30px;
+}
+
+.login-form input {
+    width: 370px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 18px;
+    background-color: #454545;
+    border: none;
+    border-radius: 5px;
+    color: white
+}
+
+.login-form button, .login-content button {
+    border: none;
+    background-color: #E50914;
+    color: white;
+    padding: 11px;
+    font-size: 19px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-form button:hover, .login-content button:hover {
+    background-color: #FF3A44
+}
+
+.fa-google {
+    padding-right: 10px;
+    font-size: 25px
+}
+
+.google-sign {
+    margin-top: 20px
+
+}
+
+.pass-div {
+    position: relative;
+}
+
+.fa-eye-slash, .fa-eye {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 17px
+}
+
+.signup-page {
+    display: flex;
+    justify-content: space-between
+}
+
+.signup-page h3, .signup-page-link{
+    font-size: 15.5px;
+    margin-top: 20px;
+    color: #818181;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.signup-page-link:nth-child(1) {
+    text-decoration: none;
+    color: white;
+    margin-left: 6px 
+}
+
+.signup-page-link:hover {
+    text-decoration: underline
+}
+
+.login-content h6 {
+    word-wrap: break-word;
+    margin-top: 15px;
+    color: red;
+    font-weight: 400;
+    font-size: 13.5px;
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        background-image: none;
+        background-color: black
+    }   
+    .login-content {
+        border-bottom: 5px solid #222222
+    }
+    .login-form input {
+        width: 100%;
+    }
+    #login-logo { 
+        display: none;
+    }
+    .login-hero {
+        height: 650px;
+        padding: 40px 0;
+    }
+    .signup-page {
+        flex-direction: column;
+        line-height: 3px
+    }
+}

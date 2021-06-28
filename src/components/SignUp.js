@@ -6,20 +6,23 @@ import Footer from './Footer'
 import { AuthContext } from '../context/AuthContext'
 
 function Login() {
-    const { signInWithPopup, signInWithEmailAndPassword } = useContext(AuthContext)
+    const { signUpWithPopup, signUpWithEmailAndPassword } = useContext(AuthContext)
     const [togglePassword, setTogglePassword] = useState(true)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
     const emailRef = useRef()
+    const nameRef = useRef()
     const passwordRef = useRef()
+    const passwordConfirmRef = useRef()
+
 
     const handleGoogleSign = async (e) => {
         e.preventDefault()
         try {
             setLoading(true)
             setError('')
-            await signInWithPopup()
+            await signUpWithPopup()
             history.push('/home')
         } catch (e) {
             setError(e.message)
@@ -27,7 +30,7 @@ function Login() {
         setLoading(false)
     }
 
-    const handleSignIn = async (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault()
         if (!emailRef.current.value || !passwordRef.current.value) {
             return setError("Please Fill Inputs")
@@ -35,10 +38,12 @@ function Login() {
         try {
             setError('')
             setLoading(true)
-            await signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
+            await signUpWithEmailAndPassword(emailRef.current.value, passwordRef.current.value, nameRef.current.value)
+            setTimeout(() => {
+                history.push('/home')
+            }, 500)
         } catch (e) {
             setError(e.message)
-            history.push('/home')
         }
         setLoading(false)
     }
@@ -47,19 +52,23 @@ function Login() {
             <div className="login-content">
                 <Link to='/home'><img id="login-logo" src={logo} alt='bg' /></Link>
                 <div className="login-hero">
-                    <form onSubmit={handleSignIn} className="login-form">
-                        <h2>Sign In</h2>
+                    <form onSubmit={handleSignUp} className="login-form">
+                        <h2>Sign Up</h2>
+                        <input ref={nameRef} required placeholder="Your Name" />
                         <input ref={emailRef} required placeholder="Your Email Address" />
                         <div className='pass-div'>
-                            <input ref={passwordRef} required placeholder="Your Password" type={togglePassword ? "password" : "text"} />
+                            <input ref={passwordRef} required placeholder="Create Password" type={togglePassword ? "password" : "text"} />
                             {togglePassword ? <i onClick={() => setTogglePassword(!togglePassword)} className="fas fa-eye-slash"></i> : <i onClick={() => setTogglePassword(!togglePassword)} className="fas fa-eye"></i>}
                         </div>
-                        <button onClick={handleSignIn} disabled={loading}>Sign In</button>
-                        <button disabled={loading} className='google-sign' onClick={handleGoogleSign}><i className="fab fa-google"></i> Sign in with Google</button>
+                        <div className='pass-div'>
+                            <input ref={passwordConfirmRef} required placeholder="Confirm Password" type={togglePassword ? "password" : "text"} />
+                            {togglePassword ? <i onClick={() => setTogglePassword(!togglePassword)} className="fas fa-eye-slash"></i> : <i onClick={() => setTogglePassword(!togglePassword)} className="fas fa-eye"></i>}
+                        </div>
+                        <button onClick={handleSignUp} disabled={loading}>Sign Up</button>
+                        <button disabled={loading} className='google-sign' onClick={handleGoogleSign}><i className="fab fa-google"></i> Sign Up with Google</button>
                         <div className="signup-page">
-                            <h3 >New to Netflix ? <Link className="signup-page-link" to="signup">Sign Up</Link></h3>
+                            <h3 >Already Have an Account ? <Link className="signup-page-link" to="login">Sign In</Link></h3>
                             <Link to="/" className="signup-page-link">Need Help?</Link>
-                            <Link to="/" className="signup-page-link">Home Page</Link>
                         </div>
                         <div style={{ width: "300px", wordWrap: "break-word" }}>
                             <h6>{error}</h6>
