@@ -7,26 +7,19 @@ export const AuthContext = createContext()
 
 function AuthProvider(props) {
     const [currentUser, setCurrentUser] = useState(null)
+    const [emailVal, setEmailVal] = useState(null)
 
     const signInWithPopup = async () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         const result = await auth.signInWithPopup(provider)
         const token = result.credential.accessToken;
-        const user = result.user
-        return user
-    }
-
-    const signUpWithPopup = (email, password) => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        const result = auth.signUpWithPopup(provider)
-        const token = result.credential.accessToken;
+        console.log(token.user.uid)
         const user = result.user
         return user
     }
 
     const signInWithEmailAndPassword = async (email, password) => {
-        auth.signInWithEmailAndPassword(email, password)
-
+        return auth.signInWithEmailAndPassword(email, password)
     }
 
     const signUpWithEmailAndPassword = async (email, password, name) => {
@@ -41,17 +34,23 @@ function AuthProvider(props) {
         })
     }
 
+    const logOut = () => {
+        return auth.signOut()
+    }
+
     useEffect(() => {
         const logUser = auth.onAuthStateChanged(user => setCurrentUser(user))
         return logUser
     }, [])
 
     const value = {
+        logOut,
         currentUser,
         signInWithPopup,
-        signUpWithPopup,
         signInWithEmailAndPassword,
-        signUpWithEmailAndPassword
+        signUpWithEmailAndPassword,
+        setEmailVal,
+        emailVal
     }
 
     return (

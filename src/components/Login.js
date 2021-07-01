@@ -36,9 +36,11 @@ function Login() {
             setError('')
             setLoading(true)
             await signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
+            setTimeout(() => {
+                history.push('/home/profile')
+            }, 500)
         } catch (e) {
             setError(e.message)
-            history.push('/home')
         }
         setLoading(false)
     }

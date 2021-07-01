@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext'
 function PrivateSignUpPage({ component: Component, ...rest }) {
     const { currentUser } = useContext(AuthContext)
     return (
-        <Route {...rest} render={props => { return currentUser ? <Redirect to="home" /> : <Component {...props} /> }} ></Route>
+        <Route {...rest} render={props => { return currentUser ? <Redirect to="/home/profile" /> : <Component {...props} /> }} ></Route>
     )
 }
 

@@ -29,7 +29,8 @@ html {
     margin: 0px auto;
     transform: translateY(20px);
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center
 }
 
 #nav-logo {
@@ -38,7 +39,7 @@ html {
     cursor: pointer
 }
 
-.navbar-nav a{
+.auth-link{
     color: white;
     text-decoration: none;
     padding: 5px 22px;
@@ -47,7 +48,7 @@ html {
     border-radius: 3px
 }
 
-.navbar-nav a:hover{
+.auth-link:hover{
     background: #ff3a44;
 }
 
@@ -85,8 +86,9 @@ html {
     outline: none
 }
 
-.header-info-content button {
+.header-info-content .link {
     width: 25%;
+    text-decoration: none;
     padding: 13.7px;
     font-size: 17px;
     background: #E50914;
@@ -95,11 +97,26 @@ html {
     cursor: pointer;
 }
 
+.watch-link-cont {
+    margin-top: 25px
+}
+
+.watch-link {
+    text-decoration: none;
+    padding: 13.7px 18px;
+    font-size: 17px;
+    background: #E50914;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500
+}
+
 .header-info-content button:hover .fa-chevron-right {
     animation: fa-chevron-right .8s ease-in infinite
 }
 
-.header-info-content button:hover {
+.header-info-content button:hover, .watch-link:hover{
     background-color: #fd2530
 }
 
@@ -146,7 +163,8 @@ html {
         margin: 10px 40px
     }
     
-    .header-info-content button {
+    .header-info-content .link {
+        text-decoration: none;
         width: 45%;
         padding: 10px 15px;
         font-size: 16px;

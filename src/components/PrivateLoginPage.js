@@ -4,10 +4,9 @@ import { AuthContext } from '../context/AuthContext'
 
 
 function PrivateLoginPage({ component: Component, ...rest }) {
-    console.log(Component)
     const { currentUser } = useContext(AuthContext)
     return (
-        <Route {...rest} render={(props) => { return currentUser ? <Redirect to='/home' /> : <Component {...props} /> }}></Route>
+        <Route {...rest} render={(props) => { return currentUser ? <Redirect to='/home/profile' /> : <Component {...props} /> }}></Route>
     )
 }
 

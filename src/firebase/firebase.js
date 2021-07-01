@@ -4,12 +4,13 @@ import "firebase/firestore"
 import "firebase/storage"
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyD4yCE-frOJxQdaES2yM8PU7ApkV_T0bBM",
-    authDomain: "netflix-4ca92.firebaseapp.com",
-    projectId: "netflix-4ca92",
-    storageBucket: "netflix-4ca92.appspot.com",
-    messagingSenderId: "774604926423",
-    appId: "1:774604926423:web:7965ab444d777ba9326f92"
+    apiKey: "AIzaSyB6z2z3PzcnprRSUgTC-p0U8A-j5ywgw-Q",
+    authDomain: "netflix-fcdc4.firebaseapp.com",
+    databaseURL: "https://netflix-fcdc4-default-rtdb.firebaseio.com",
+    projectId: "netflix-fcdc4",
+    storageBucket: "netflix-fcdc4.appspot.com",
+    messagingSenderId: "1068445096450",
+    appId: "1:1068445096450:web:d44095dd5999fb7fea251b"
 });
 
 export const auth = app.auth()
