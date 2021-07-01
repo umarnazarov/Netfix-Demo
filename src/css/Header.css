@@ -113,14 +113,14 @@ html {
 }
 
 .header-info-content button:hover .fa-chevron-right {
-    animation: fa-chevron-right .8s ease-in infinite
+    animation: fa-chevron .8s ease-in infinite !important
 }
 
 .header-info-content button:hover, .watch-link:hover{
     background-color: #fd2530
 }
 
-@keyframes fa-chevron-right {
+@keyframes fa-chevron {
     0% {
         transform: translateX(0px)
     }
