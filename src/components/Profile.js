@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import logo from '../images/netflix-logo.png'
+import LoadingCards from "./LoadingCards"
 import { AuthContext } from "../context/AuthContext"
 import { firestore } from '../firebase/firebase'
 import Navbar from './Navbar'
@@ -38,7 +38,6 @@ function Profile() {
         e.preventDefault()
         try {
             setLoading(true)
-            const userD = await firestore.collection("users").doc(currentUser.uid).get()
             await firestore.collection("users").doc(currentUser.uid).update({ img })
             const newlyuserD = await firestore.collection("users").doc(currentUser.uid).get()
             setData(newlyuserD.data())
@@ -59,12 +58,12 @@ function Profile() {
                             <h4>Choose a profile icon</h4>
                         </div>
                         <div className="profile-container-text2">
-                            <h4>{data.name}</h4>
+                            <h4 >{data && data.name}</h4>
                             <img className="user-image" src={loading ? loadAnim : data.img} />
                         </div>
                     </div>
                     <div className="profile-icons">
-                        {icons && handleIcons()}
+                        {icons ? handleIcons() : <LoadingCards />}
                     </div>
                 </div>
             </div>

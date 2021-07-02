@@ -12,10 +12,18 @@ function AuthProvider(props) {
     const signInWithPopup = async () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         const result = await auth.signInWithPopup(provider)
-        const token = result.credential.accessToken;
-        console.log(token.user.uid)
-        const user = result.user
-        return user
+        const data = firestore.collection("users").doc(result.user.uid)
+        if (data.id === result.user.uid) {
+            return result
+        } else {
+            firestore.collection("users").doc(result.user.uid).set({
+                img: "https://firebasestorage.googleapis.com/v0/b/netflix-fcdc4.appspot.com/o/unnamed.jpg?alt=media&token=0cf544e4-8f02-42d6-9ee5-96b73f18a953",
+                id: result.user.uid,
+                name: result.user.displayName,
+                email: result.user.email,
+                savedMovies: []
+            })
+        }
     }
 
     const signInWithEmailAndPassword = async (email, password) => {
@@ -24,7 +32,6 @@ function AuthProvider(props) {
 
     const signUpWithEmailAndPassword = async (email, password, name) => {
         const cred = await auth.createUserWithEmailAndPassword(email, password)
-        console.log(cred.user.uid)
         return firestore.collection("users").doc(cred.user.uid).set({
             id: cred.user.uid,
             name: name,

@@ -34,7 +34,7 @@
 
 .profile-container-text1 h2, h4{
     font-weight: 300;
-    margin-left: 55px
+    margin-left: 75px
 }
 
 .profile-container-text2{
@@ -54,8 +54,9 @@
     position: absolute;
     top: 11px;
     left: 2px;
-    font-size: 46px;
+    font-size: 44px;
     color: white;
+    margin-left: 20px;
     transition: .2s ease-in
 }
 
@@ -101,6 +102,7 @@
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .profile-icons::-webkit-scrollbar {
@@ -115,4 +117,27 @@
 
 .profile-icons::-webkit-scrollbar-thumb:hover {
   background: gainsboro; 
+}
+
+@media (max-width: 850px) {
+    .profile-content {
+        margin: 0;
+    }
+}
+
+@media (max-width: 670px) {
+    .profile-container-text1 i{
+        display: none;
+    }
+    .profile-container-text1 h2, h4{
+        margin-left: 20px
+    }
+    .profile-container-text2 h4 {
+        display: none
+    }
+    .icon-cont img {
+        height: 80px;
+        width: 80px;
+    }
+
 }
