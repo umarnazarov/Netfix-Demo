@@ -165,9 +165,11 @@ html {
     
     .header-info-content .link {
         text-decoration: none;
-        width: 45%;
+        width:45%;
         padding: 10px 15px;
         font-size: 16px;
+        display: block;
+        margin: 0 auto;
     }
 
     .header-info-ask p {

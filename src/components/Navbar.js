@@ -28,6 +28,7 @@ function Navbar() {
                 <NavLink activeClassName="active" exact className="navbar-profile-link" to='/home'><i className="fas fa-home"></i></NavLink>
                 <NavLink activeClassName="active" exact className="navbar-profile-link" to="/home/profile"><i className="fas fa-user"></i></NavLink>
                 <NavLink activeClassName="active" exact className="navbar-profile-link" to="/home/films"><i className="fas fa-film"></i></NavLink>
+                <NavLink activeClassName="active" exact className="navbar-profile-link" to="/home/films/saved"><i className="fas fa-folder-open"></i></NavLink>
                 <p className="navbar-profile-link" onClick={handleLogOut}><i className="fas fa-sign-out-alt"></i></p>
             </div>
         </nav>

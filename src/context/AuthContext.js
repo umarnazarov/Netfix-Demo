@@ -34,6 +34,7 @@ function AuthProvider(props) {
         const cred = await auth.createUserWithEmailAndPassword(email, password)
         return firestore.collection("users").doc(cred.user.uid).set({
             id: cred.user.uid,
+            img: "https://firebasestorage.googleapis.com/v0/b/netflix-fcdc4.appspot.com/o/unnamed.jpg?alt=media&token=0cf544e4-8f02-42d6-9ee5-96b73f18a953",
             name: name,
             email: email,
             password: password,
