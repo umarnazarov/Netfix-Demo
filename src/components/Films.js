@@ -51,6 +51,7 @@ function Films() {
         ))
     }
 
+
     const handleInputVal = (e) => {
         setInputVal(e.target.value)
     }
