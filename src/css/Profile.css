@@ -129,7 +129,7 @@
 
 @media (max-width: 850px) {
     .profile-content {
-        margin: 0;
+        margin: 0 20px;
     }
 }
 
