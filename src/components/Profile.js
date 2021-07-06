@@ -46,6 +46,9 @@ function Profile() {
         }
         setLoading(false)
     }
+
+
+
     return (
         <main className="profile-main">
             <Navbar />

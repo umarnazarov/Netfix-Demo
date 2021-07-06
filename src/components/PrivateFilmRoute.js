@@ -4,7 +4,6 @@ import { AuthContext } from '../context/AuthContext'
 
 
 function PrivateFilmRoute({ component: Component, ...rest }) {
-    console.log(Component)
     const { currentUser } = useContext(AuthContext)
     return (
         <Route {...rest} render={(props) => { return !currentUser ? <Redirect to='/login' /> : <Component {...props} /> }}></Route>
