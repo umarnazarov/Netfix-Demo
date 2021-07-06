@@ -113,17 +113,17 @@
     justify-content: center;
 }
 
-.profile-icons::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 8px;
     opacity: 0;
 }
 
-.profile-icons::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background:grey;
   border-radius: 25px;
 }
 
-.profile-icons::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: gainsboro; 
 }
 

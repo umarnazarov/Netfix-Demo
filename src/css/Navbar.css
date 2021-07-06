@@ -35,7 +35,7 @@
     color: #E50914;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1024px) {
     .side-navbar {
         height: 55px;
         width: 100vw;
