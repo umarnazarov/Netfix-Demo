@@ -1,0 +1,161 @@
+.movie-conteiner {
+    /* height: 100vh; */
+    margin-left: 70px;
+}
+
+.movie-nav {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+#movie-logo {
+    width: 150px;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.movie-content {
+    max-width: 1000px;
+    padding: 0 20px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-content-info h2{
+    font-size: 29px;
+    margin-bottom: 5px
+}
+
+.movie-genre {
+    margin-bottom: 30px
+}
+
+.movie-genre span{
+    font-size: 14px;
+    background-color: rgb(255, 41, 41);
+    margin-right: 10px;
+    padding: 2px 4px;
+    color: black;
+    font-weight: 500
+}
+
+.movie-content-info p{
+    font-size: 15px;
+    color: gainsboro
+}
+
+.movie-content-info video{
+    max-width: 100%;
+    outline: none;
+    margin-top: 30px
+
+}
+
+.movie-content-info textarea{
+    width: 100%;
+    outline: none;
+    height: 80px;
+    font-size: 17.5px;
+    background-color: #0D0D0D;
+    margin-top: 20px;
+    color: white;
+    border: none; 
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-div {
+    display: flex;
+    justify-content: flex-end
+}
+
+.comment-form button{
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+    color: whitesmoke;
+    background-color: #0D0D0D;
+    margin-bottom: 20px;
+    border: solid 1px rgb(124, 124, 124)
+}
+
+.movie-content-info h5{
+    font-size: 16px;
+    font-weight: normal;
+    /* color: #E50914; */
+    /* text-align: center */
+}
+
+.comment {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid gray
+}
+
+.comment h3 {
+    font-size: 19px;
+    color: rgb(255, 92, 92);
+    font-weight: 400;
+}
+
+.comment h3::after {
+    content: "says:";
+    color: #616161;
+    margin-left: 6px;
+    font-size: 13px
+}
+
+.comment h6 {
+    font-size: 10.5px;
+    font-weight: 200;
+}
+
+.comment p {
+    margin-top: 20px;
+    color: white
+}
+
+.comment input {
+    margin-top: 15.5px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 2px 5px;
+    background-color: #464646;
+    color: white;
+}
+
+#comment-error {
+    color: red;
+    font-size: 13px;
+}
+
+.edit-comment {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 14px;
+    color: rgb(255, 136, 0);
+
+}
+
+.delete-comment {
+    background-color: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: rgb(255, 0, 0);
+    transform: translateX(-10px)
+}
+
+@media (max-width: 1240px) {
+    .movie-conteiner {
+        margin: 0
+    }
+}
