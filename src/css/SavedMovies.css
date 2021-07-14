@@ -1,0 +1,156 @@
+.saved-container {
+    height: 100%;
+}
+
+.saved-content {
+    margin-left: 70px
+}
+
+.saved-movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: 40px auto;
+    
+}
+
+.saved-card {
+    display: flex;
+    justify-content: space-around;
+    display: flex;
+    height: 300px;
+    margin: 10px 5px;
+    max-width: 560px;
+    color: white;
+    opacity: 0;
+    animation: saved-movies .5s ease-in forwards
+}
+
+.save-text{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.empty-info {
+    height: 100vh
+}
+
+#empty-info-link {
+    text-decoration: none;
+    color: #E50914
+}
+
+#empty-info-link:hover {
+    text-decoration: underline;
+    color: #ff797f
+}
+
+@keyframes saved-movies {
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.saved-card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 60%;
+    margin-left: 10px
+}
+
+.saved-card img {
+    height: 100%;
+    flex-basis: 40%;
+    object-fit: cover
+}
+
+.saved-card h6 {
+    font-size: 21px;
+}
+
+.saved-card p {
+    margin-top: 30px;
+    font-size: 13.5px;
+    line-height: 20px
+}
+
+.duration {
+    color: rgb(91, 91, 104);
+    font-size: 12px;
+    font-weight: 500
+}
+
+.movies-btns {
+    /* margin-top: 65px; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.saved-movie-link {
+    text-decoration: none;
+    background-color:#E50914;
+    color:#0D0D0D;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.movies-btns button{
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #0D0D0D;
+    color:#E50914;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    font-weight: 500;
+    outline: none;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+
+@media (max-width: 1024px) {
+    .saved-content {
+        margin-left: 0
+    }
+}
+
+@media (max-width: 1340px) {
+    .saved-card {
+        max-width: 1000px;
+        justify-content: center;
+    }
+    .saved-card-info {
+        flex-basis: 95%
+    }
+    .saved-card img {
+        flex-basis: 5%
+    }
+}
+
+@media (max-width: 590px) {
+    .saved-card {
+        flex-direction: column;
+        height: 850px;
+        margin: 30px 0
+    }
+
+    .saved-card-info {
+        max-width: 100% 
+    }
+    .saved-card img {
+        height: 60%;
+        width: 100%;
+    }
+
+    .saved-card h6 {
+        margin-top: 20px;
+    }
+}

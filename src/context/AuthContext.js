@@ -9,21 +9,23 @@ function AuthProvider(props) {
     const [currentUser, setCurrentUser] = useState(null)
     const [emailVal, setEmailVal] = useState(null)
 
-    const signInWithPopup = async () => {
+    const signInPopup = async () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         const result = await auth.signInWithPopup(provider)
-        const data = firestore.collection("users").doc(result.user.uid)
-        if (data.id === result.user.uid) {
-            return result
-        } else {
-            firestore.collection("users").doc(result.user.uid).set({
+        const user = await firestore.collection("users").doc(result.user.uid).get()
+        const userD = user.data()
+        console.log(userD, result)
+        if (!userD || userD.id !== result.user.uid) {
+            const setD =  await firestore.collection("users").doc(result.user.uid).set({
                 img: "https://firebasestorage.googleapis.com/v0/b/netflix-fcdc4.appspot.com/o/unnamed.jpg?alt=media&token=0cf544e4-8f02-42d6-9ee5-96b73f18a953",
                 id: result.user.uid,
                 name: result.user.displayName,
                 email: result.user.email,
                 savedMovies: []
             })
+            return setD
         }
+        return userD
     }
 
     const signInWithEmailAndPassword = async (email, password) => {
@@ -46,6 +48,10 @@ function AuthProvider(props) {
         return auth.signOut()
     }
 
+    const passwordReset = (email) => {
+        return auth.sendPasswordResetEmail(email)
+    }
+
     useEffect(() => {
         const logUser = auth.onAuthStateChanged(user => setCurrentUser(user))
         return logUser
@@ -53,12 +59,13 @@ function AuthProvider(props) {
 
     const value = {
         logOut,
-        currentUser,
-        signInWithPopup,
-        signInWithEmailAndPassword,
-        signUpWithEmailAndPassword,
+        emailVal,
         setEmailVal,
-        emailVal
+        currentUser,
+        signInPopup,
+        passwordReset,
+        signInWithEmailAndPassword,
+        signUpWithEmailAndPassword
     }
 
     return (

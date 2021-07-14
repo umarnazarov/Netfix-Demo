@@ -127,7 +127,7 @@
   background: gainsboro; 
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1024px) {
     .profile-content {
         margin: 0 20px;
     }
@@ -144,8 +144,8 @@
         display: none
     }
     .icon-cont img {
-        height: 80px;
-        width: 80px;
+        height: 60px;
+        width: 60px;
     }
 
 }

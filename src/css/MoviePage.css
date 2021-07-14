@@ -21,6 +21,14 @@
     margin: 40px auto;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    animation: movie-content .4s ease-in forwards
+}
+
+@keyframes movie-content {
+    100% {
+        opacity: 1;
+    }
 }
 
 .movie-content-info h2{
@@ -29,10 +37,29 @@
 }
 
 .movie-genre {
-    margin-bottom: 30px
+    margin-bottom: 15px
+}
+
+#add-to-later {
+    margin-bottom: 30px;
+    padding: 6px 9px;
+    font-size: 13.5px;
+    font-weight: 500;
+    border: #FF2929 solid 1px;
+    background-color: #0D0D0D;
+    color: #FF2929;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: .2s ease-in
+}
+
+#add-to-later:hover {
+    background-color: #FF2929;
+    color: #000;
 }
 
 .movie-genre span{
+    display: inline-block;
     font-size: 14px;
     background-color: rgb(255, 41, 41);
     margin-right: 10px;
@@ -68,8 +95,44 @@
 
 .btn-div {
     display: flex;
-    justify-content: flex-end
+    justify-content: space-between;
 }
+
+.btn-div p {
+    font-size: 16px
+}
+
+.rate-movie {
+    display: flex
+}
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 8px 0;
+  margin-right: 4px;
+  font-size: 1.24em;
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  content: "\f005";
+  cursor: pointer;
+}
+
+
+.rating > label { 
+ color: rgb(99, 93, 93); 
+ float: right; 
+}
+
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label { color: #FF2929;  }
+.rating > input:checked ~ label { color: #FF2929;  } 
+
 
 .comment-form button{
     cursor: pointer;
@@ -81,11 +144,17 @@
     border: solid 1px rgb(124, 124, 124)
 }
 
+
 .movie-content-info h5{
     font-size: 16px;
     font-weight: normal;
-    /* color: #E50914; */
-    /* text-align: center */
+    margin-top: 65px !important
+}
+
+button:disabled {
+    cursor:not-allowed;
+    background-color: gray;
+    color: black
 }
 
 .comment {
@@ -115,7 +184,7 @@
 }
 
 .comment p {
-    margin-top: 20px;
+    margin-top: 45px;
     color: white
 }
 
@@ -152,6 +221,11 @@
     font-size: 14px;
     color: rgb(255, 0, 0);
     transform: translateX(-10px)
+}
+
+.comments-h2 {
+    padding-bottom: 30px;
+    margin-top: 30px 
 }
 
 @media (max-width: 1240px) {

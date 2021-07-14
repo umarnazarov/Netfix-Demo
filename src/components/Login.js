@@ -3,10 +3,11 @@ import { Link, useHistory } from 'react-router-dom'
 import logo from '../images/netflix-logo.png'
 import "../css/LoginSignup.css"
 import Footer from './Footer'
+import LoaderTwo from "./LoaderTwo"
 import { AuthContext } from '../context/AuthContext'
 
 function Login() {
-    const { signInWithPopup, signInWithEmailAndPassword } = useContext(AuthContext)
+    const { signInPopup, signInWithEmailAndPassword } = useContext(AuthContext)
     const [togglePassword, setTogglePassword] = useState(true)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -19,8 +20,10 @@ function Login() {
         try {
             setLoading(true)
             setError('')
-            await signInWithPopup()
-            history.push('/home')
+            await signInPopup()
+            setTimeout(() => {
+                history.push('/home/profile')
+            }, 1000)
         } catch (e) {
             setError(e.message)
         }
@@ -56,12 +59,14 @@ function Login() {
                             <input ref={passwordRef} required placeholder="Your Password" type={togglePassword ? "password" : "text"} />
                             {togglePassword ? <i onClick={() => setTogglePassword(!togglePassword)} className="fas fa-eye-slash"></i> : <i onClick={() => setTogglePassword(!togglePassword)} className="fas fa-eye"></i>}
                         </div>
-                        <button onClick={handleSignIn} disabled={loading}>Sign In</button>
-                        <button disabled={loading} className='google-sign' onClick={handleGoogleSign}><i className="fab fa-google"></i> Sign in with Google</button>
+                        {loading ? <LoaderTwo height={"50px"} /> : <button onClick={handleSignIn} disabled={loading}>Sign In</button>}
                         <div className="signup-page">
                             <h3 >New to Netflix ? <Link className="signup-page-link" to="signup">Sign Up</Link></h3>
-                            <Link to="/" className="signup-page-link">Need Help?</Link>
+                            <Link to="/forgotpassword" className="signup-page-link">Need Help?</Link>
+                        </div>
+                        <div className="signup-page">
                             <Link to="/" className="signup-page-link">Home Page</Link>
+                            <span disabled={loading} className='google-sign' onClick={handleGoogleSign}><i className="fab fa-google"></i> Sign in with Google</span>
                         </div>
                         <div style={{ width: "300px", wordWrap: "break-word" }}>
                             <h6>{error}</h6>

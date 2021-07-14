@@ -11,7 +11,7 @@ function Profile() {
     const { currentUser } = useContext(AuthContext)
     const [icons, setIcons] = useState(null)
     const [loading, setLoading] = useState(false)
-    const [data, setData] = useState({ img: loadAnim, name: '' })
+    const [data, setData] = useState(null)
     useEffect(() => {
         const getData = async () => {
             const db = await firestore.collection("icons").get()
@@ -25,7 +25,7 @@ function Profile() {
             setData(db.data())
         }
         return getData()
-    }, [])
+    }, [icons])
     const handleIcons = () => {
         const theicons = icons.map(obj => (
             <div onClick={(e) => handleChangeIcon(obj.img, e)} x className="icon-cont">
@@ -46,9 +46,6 @@ function Profile() {
         }
         setLoading(false)
     }
-
-
-
     return (
         <main className="profile-main">
             <Navbar />
@@ -62,7 +59,7 @@ function Profile() {
                         </div>
                         <div className="profile-container-text2">
                             <h4 >{data && data.name}</h4>
-                            <img className="user-image" src={loading ? loadAnim : data.img} />
+                            {!data || loading ? <img className="user-image" src={loadAnim} /> : <img className="user-image" src={data.img} />}
                         </div>
                     </div>
                     <div className="profile-icons">
